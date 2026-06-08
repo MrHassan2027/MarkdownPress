@@ -33,7 +33,7 @@ export function getAllPostsMeta(): PostMeta[] {
       return {
         slug,
         title: data.title ?? slug,
-        date: data.date ?? "",
+        date: data.date ? String(data.date).slice(0, 10) : "",
         tags: data.tags ?? [],
         excerpt: data.excerpt ?? content.slice(0, 150) + "...",
         readingTime: Math.ceil(words / 200),
@@ -54,7 +54,7 @@ export async function getPost(slug: string): Promise<Post> {
   return {
     slug,
     title: data.title ?? slug,
-    date: data.date ?? "",
+    date: data.date ? String(data.date).slice(0, 10) : "",
     tags: data.tags ?? [],
     excerpt: data.excerpt ?? "",
     readingTime: Math.ceil(words / 200),
@@ -64,5 +64,5 @@ export async function getPost(slug: string): Promise<Post> {
 
 export function getAllTags(): string[] {
   const posts = getAllPostsMeta();
-  return [...new Set(posts.flatMap(p => p.tags))].sort();
+  return Array.from(new Set(posts.flatMap(p => p.tags))).sort();
 }
