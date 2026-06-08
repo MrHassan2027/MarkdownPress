@@ -3,16 +3,15 @@
 > Drop Markdown files in /posts — get a fast, static blog. Zero CMS, zero database.
 
 ## What it does
-A minimal Next.js blog where your posts ARE your files. Write `.md` files in `/posts`, run `npm run build`, and get a fully static blog with a home page, post pages, tags, and RSS feed. Deploy to GitHub Pages, Vercel, or any static host.
+A minimal Next.js blog where your posts ARE your files. Write `.md` files in `/posts`, run `npm run build`, and get a fully static blog with a home page and post pages. Deploy to Vercel, GitHub Pages, or any static host.
 
 ## Quick Start
 ```bash
-git clone https://github.com/yourusername/MarkdownPress
+git clone https://github.com/MrHassan2027/MarkdownPress
 cd MarkdownPress
 npm install
-# Create your first post:
-echo "---\ntitle: Hello World\ndate: 2026-06-08\ntags: [intro]\n---\n\nHello!" > posts/hello.md
 npm run dev
+# Open http://localhost:3000
 ```
 
 ## Post Format
@@ -29,13 +28,10 @@ Your post content here in **Markdown**.
 
 ## Features
 - Static generation — zero server required
-- Frontmatter: title, date, tags, excerpt, cover image
-- Tag pages: `/tags/javascript`
-- RSS feed: `/feed.xml`
-- Dark mode toggle
+- Frontmatter: title, date, tags, excerpt
 - Reading time estimate
-- Open Graph meta tags for social sharing
-- `npm run new "Post Title"` scaffolds a new post file
+- Syntax-highlighted code blocks via `rehype-highlight`
+- `npm run build` exports a fully static site
 
 ## Tech Stack
 | Tool | Why |
@@ -44,4 +40,3 @@ Your post content here in **Markdown**.
 | `gray-matter` | YAML frontmatter parsing |
 | `remark` + `rehype` | Markdown → HTML pipeline |
 | `rehype-highlight` | Code block syntax highlighting |
-| Tailwind CSS | Styling |
